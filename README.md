@@ -37,7 +37,7 @@ npm install
 
 `npm install` builds the tool into `dist/`. Run it with `node dist/cli.js <path>`, or put `hubcard-lint` on your PATH with `npm link`.
 
-Other ways, once the package is published to the npm registry: `npx hubcard-lint <path>` or `npm install -g hubcard-lint`. Installing a packed tarball (`npm pack`, then `npm install -g ./hubcard-lint-0.1.0.tgz`) was checked and works.
+Other ways, once the package is published to the npm registry: `npx hubcard-lint <path>` or `npm install -g hubcard-lint`. Installing a packed tarball (`npm pack`, then `npm install -g ./hubcard-lint-0.1.1.tgz`) was checked and works.
 
 ## Quick start
 
@@ -117,12 +117,12 @@ Add the hook to `.pre-commit-config.yaml`:
 ```yaml
 repos:
   - repo: https://github.com/LeeGyeongPil/hubcard-lint
-    rev: v0.1.0
+    rev: v0.1.1
     hooks:
       - id: hubcard-lint
 ```
 
-The hook runs on every changed `README.md` and stops the commit when there is an error. The repository commits `dist/` on purpose, because pre-commit installs hooks from the Git checkout without running the TypeScript build. The hook was checked locally with `pre-commit try-repo`; the `rev: v0.1.0` tag exists once the first release is published.
+The hook runs on every changed `README.md` and stops the commit when there is an error. The repository commits `dist/` on purpose, because pre-commit installs hooks from the Git checkout without running the TypeScript build. The hook was checked locally with `pre-commit try-repo`; the `rev: v0.1.1` tag exists once the first release is published.
 
 ### Use as a library
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - 2026-11-17
+
+- Test config: raise test and hook timeouts and cap workers so CLI spawn tests are stable under load.
+
 ## 0.1.0 - 2026-11-17
 
 First release.

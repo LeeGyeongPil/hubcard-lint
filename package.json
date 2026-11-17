@@ -1,6 +1,6 @@
 {
   "name": "hubcard-lint",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Offline linter for Hugging Face Hub repo card metadata (model, dataset and Space README.md YAML) with Hub-equivalent messages, line:column positions and suggested fixes.",
   "keywords": [
     "huggingface",

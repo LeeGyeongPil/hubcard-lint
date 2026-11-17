@@ -37,7 +37,7 @@ npm install
 
 `npm install` 이 `dist/` 로 빌드합니다. `node dist/cli.js <경로>` 로 실행하거나 `npm link` 로 `hubcard-lint` 를 PATH 에 올립니다.
 
-패키지가 npm 레지스트리에 게시된 뒤에는 `npx hubcard-lint <경로>` 또는 `npm install -g hubcard-lint` 도 됩니다. 묶은 tarball(`npm pack` 후 `npm install -g ./hubcard-lint-0.1.0.tgz`) 설치는 확인했고 동작합니다.
+패키지가 npm 레지스트리에 게시된 뒤에는 `npx hubcard-lint <경로>` 또는 `npm install -g hubcard-lint` 도 됩니다. 묶은 tarball(`npm pack` 후 `npm install -g ./hubcard-lint-0.1.1.tgz`) 설치는 확인했고 동작합니다.
 
 ## 빠르게 시작하기
 
@@ -117,12 +117,12 @@ node dist/cli.js examples --format json --strict --lang ko
 ```yaml
 repos:
   - repo: https://github.com/LeeGyeongPil/hubcard-lint
-    rev: v0.1.0
+    rev: v0.1.1
     hooks:
       - id: hubcard-lint
 ```
 
-바뀐 `README.md` 마다 훅이 돌고 오류가 있으면 commit 이 멈춥니다. pre-commit 은 TypeScript 빌드 없이 Git 체크아웃에서 훅을 설치하기 때문에 이 레포는 `dist/` 를 일부러 커밋합니다. 훅은 `pre-commit try-repo` 로 로컬에서 확인했고, `rev: v0.1.0` 태그는 첫 릴리스 공개 뒤에 생깁니다.
+바뀐 `README.md` 마다 훅이 돌고 오류가 있으면 commit 이 멈춥니다. pre-commit 은 TypeScript 빌드 없이 Git 체크아웃에서 훅을 설치하기 때문에 이 레포는 `dist/` 를 일부러 커밋합니다. 훅은 `pre-commit try-repo` 로 로컬에서 확인했고, `rev: v0.1.1` 태그는 첫 릴리스 공개 뒤에 생깁니다.
 
 ### 라이브러리로 쓰기
 
