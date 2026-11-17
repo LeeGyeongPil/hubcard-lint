@@ -1,0 +1,99 @@
+{
+  "observed": "2026-11-17",
+  "endpoint": "POST https://huggingface.co/api/validate-yaml {repoType, content}",
+  "note": "Responses recorded once during research by sending these dummy cards to the public Hub endpoint. Tests compare against this record offline; they never call the Hub. 'errors' are the 'Error:' lines (first line only for YAML syntax errors); 'warnings' are the 'Warning:' lines, which may be truncated in the record ('truncated': true means compare by prefix).",
+  "cards": [
+    { "card": "good.md", "repoType": "model", "status": 200, "errors": [], "warnings": [] },
+    {
+      "card": "bad_values.md",
+      "repoType": "model",
+      "status": 400,
+      "errors": [
+        "\"datasets.0\" must be a string",
+        "\"license\" must be a license identifier from https://huggingface.co/docs/hub/repositories-licenses, or \"other\" with a LICENSE file",
+        "\"language.0\" length must be less than or equal to 3 characters long",
+        "\"base_model.0\" with value \"not a repo id\" is not valid. Use a model id from https://hf.co/models.",
+        "\"base_model_relation\" must be one of [adapter, merge, quantized, finetune]"
+      ],
+      "warnings": [
+        { "text": "The pipeline tag \"text-generations\" is not in the official list: text-classification, token-classification, table-question-answering, question-answering, zero-shot-classification, translation, summarization, feature-extraction, text-generation, fill-mask, sentence-similarity, text-to-speech, text-to-audio, automatic-speech-recognition, audio-to-audio, audio-classification, audio-text-to-text, voice-activity-detection, depth-estimation, image-classification, object-detection, image-segmentation, text-to-image, image-to-text, image-to-image, image-to-video, unconditional-image-generation, video-classification, reinforcement-learning, robotics, tabular-classification, tabular-regression, tabular-to-text, table-to-text, multiple-choice, text-ranking, text-retrieval, time-series-forecasting, text-to-video, image-text-to-text, image-text-to-image, image-text-to-video, visual-question-answering, document-question-answering, zero-shot-image-classification, graph-ml, mask-generation, zero-shot-object-detection, text-to-3d, image-to-3d, image-feature-extraction, video-text-to-text, keypoint-detection, visual-document-retrieval, any-to-any, video-to-video, other", "truncated": false }
+      ]
+    },
+    {
+      "card": "bad_model_index.md",
+      "repoType": "model",
+      "status": 400,
+      "errors": [
+        "\"model-index.0.results.0.task.type\" is required",
+        "\"model-index.0.results.0.dataset.type\" is required",
+        "\"model-index.0.results.0.metrics.0.type\" is required",
+        "\"model-index.0.results.0.metrics.0.value\" is required"
+      ],
+      "warnings": []
+    },
+    {
+      "card": "bad_indent2.md",
+      "repoType": "model",
+      "status": 400,
+      "errors": ["Invalid YAML in README.md: bad indentation of a sequence entry (4:15)"],
+      "warnings": []
+    },
+    {
+      "card": "dup_key.md",
+      "repoType": "model",
+      "status": 400,
+      "errors": ["Invalid YAML in README.md: duplicated mapping key (2:1)"],
+      "warnings": []
+    },
+    {
+      "card": "no_front.md",
+      "repoType": "model",
+      "status": 200,
+      "errors": [],
+      "warnings": [{ "text": "empty or missing yaml metadata in repo card", "truncated": false }]
+    },
+    {
+      "card": "space_bad.md",
+      "repoType": "space",
+      "status": 400,
+      "errors": [
+        "\"colorFrom\" must be one of [red, yellow, green, blue, indigo, purple, pink, gray]",
+        "\"app_port\" must be a number",
+        "\"suggested_hardware\" must be one of [cpu-basic, cpu-upgrade, cpu-performance, cpu-xl, sprx8, zero-a10g, t4-small, t4-medium, l4x1, l4x4, l40sx1, l40sx4, l40sx8, a10g-small, a10g-large, a10g-largex2, a10g-largex4, a100-large, a100x4, a100x8, h200, h200x2, h200x4, h200x8, rtx-pro-6000, rtx-pro-6000x2, rtx-pro-6000x4, rtx-pro-6000x8, inf2x6]"
+      ],
+      "warnings": []
+    },
+    { "card": "other_no_name.md", "repoType": "model", "status": 200, "errors": [], "warnings": [] },
+    {
+      "card": "dataset_bad.md",
+      "repoType": "dataset",
+      "status": 200,
+      "errors": [],
+      "warnings": [
+        { "text": "The task_categories \"text-generations\" is not in the official list: text-classification, token-classification, table-question-answering, question-answering, zero-shot-classification, translation, summarization, feature-extraction, text-generation, fill-mask, sentence-similarity, text-to-speech, text-to-audio, automatic-speech-recognition, audio-to-audio, audio-classification, audio-text", "truncated": true }
+      ]
+    },
+    { "card": "space_no_version.md", "repoType": "space", "status": 200, "errors": [], "warnings": [] },
+    {
+      "card": "bom.md",
+      "repoType": "model",
+      "status": 400,
+      "errors": ["\"license\" must be a license identifier from https://huggingface.co/docs/hub/repositories-licenses, or \"other\" with a LICENSE file"],
+      "warnings": []
+    },
+    {
+      "card": "crlf.md",
+      "repoType": "model",
+      "status": 400,
+      "errors": ["\"license\" must be a license identifier from https://huggingface.co/docs/hub/repositories-licenses, or \"other\" with a LICENSE file"],
+      "warnings": []
+    },
+    {
+      "card": "leading_blank.md",
+      "repoType": "model",
+      "status": 400,
+      "errors": ["\"license\" must be a license identifier from https://huggingface.co/docs/hub/repositories-licenses, or \"other\" with a LICENSE file"],
+      "warnings": []
+    }
+  ]
+}
