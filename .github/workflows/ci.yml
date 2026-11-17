@@ -1,0 +1,28 @@
+# 네트워크·키 없이 전체 흐름을 검증한다: 빌드(tsc) + vitest(허브 응답 기록과 비교) + 예제 실행 + 스냅샷 차이 검사.
+name: ci
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * 1"   # 매주 월요일 — 의존성·런타임이 바뀌어 깨지지 않았는지 정기 확인
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      # 커밋된 dist/(pre-commit·git 설치용)가 src/ 를 다시 빌드한 결과와 같은지
+      - run: git diff --exit-code -- dist
+      - run: npm start
+      - run: node examples/api.mjs
+      - run: node scripts/refresh-snapshot.mjs --check
