@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# Node
+node_modules/
+# dist/ 는 커밋한다 — pre-commit 훅·git 설치가 빌드 도구 없이 바로 쓰도록(scripts/prepare.mjs 참고)
+.next/
+
+# 실행 산출물·모델·데이터 캐시
+runs/
+outputs/
+.cache/
+*.safetensors
+*.gguf
+*.bin
+
+# 환경·비밀
+.env
+.env.*
+!.env.example
+
+# OS·에디터
+.DS_Store
+.vscode/
+.idea/
+
+# Flutter·Dart
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+coverage/

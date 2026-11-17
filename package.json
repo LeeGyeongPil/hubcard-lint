@@ -1,0 +1,68 @@
+{
+  "name": "hubcard-lint",
+  "version": "0.1.0",
+  "description": "Offline linter for Hugging Face Hub repo card metadata (model, dataset and Space README.md YAML) with Hub-equivalent messages, line:column positions and suggested fixes.",
+  "keywords": [
+    "huggingface",
+    "hugging-face-hub",
+    "model-card",
+    "dataset-card",
+    "spaces",
+    "yaml",
+    "lint",
+    "pre-commit",
+    "cli"
+  ],
+  "license": "MIT",
+  "author": "LeeGyeongPil",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeGyeongPil/hubcard-lint.git"
+  },
+  "homepage": "https://github.com/LeeGyeongPil/hubcard-lint#readme",
+  "bugs": {
+    "url": "https://github.com/LeeGyeongPil/hubcard-lint/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "hubcard-lint": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.ko.md",
+    "LICENSE",
+    "NOTICE",
+    "docs/rules.md",
+    "docs/rules.ko.md"
+  ],
+  "scripts": {
+    "build": "node scripts/clean-dist.mjs && tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "prepare": "node scripts/prepare.mjs",
+    "test": "npm run build && tsc -p tsconfig.test.json && vitest run",
+    "start": "node dist/cli.js examples --exit-zero",
+    "refresh-snapshot": "node scripts/refresh-snapshot.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "5.5.0",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@huggingface/tasks": "0.22.16",
+    "@types/node": "22.20.5",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  }
+}

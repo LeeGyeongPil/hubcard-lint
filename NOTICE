@@ -1,0 +1,23 @@
+hubcard-lint
+Copyright (c) 2026 LeeGyeongPil
+Licensed under the MIT License (see LICENSE).
+
+hubcard-lint is an unofficial tool. It is not affiliated with or endorsed by Hugging Face.
+
+Rule data bundled in src/data/snapshot.json (checked 2026-11-17):
+
+- Pipeline task types, sub-task types and model library names are copied from the npm
+  package @huggingface/tasks 0.22.16, MIT License, Copyright (c) Hugging Face.
+  https://github.com/huggingface/huggingface.js/tree/main/packages/tasks
+- License identifiers come from the Hugging Face Hub documentation page "Licenses".
+  https://huggingface.co/docs/hub/repositories-licenses
+- Space colors and SDK names come from the Spaces configuration reference.
+  https://huggingface.co/docs/hub/spaces-config-reference
+- The suggested_hardware list and the quoted Hub messages ("hub" field of diagnostics) were
+  observed in responses of the public endpoint https://huggingface.co/api/validate-yaml to
+  dummy cards on 2026-11-17. The Hub's server-side schema is not public; these values may change.
+
+Runtime dependencies:
+
+- js-yaml 5.5.0, MIT License — https://github.com/nodeca/js-yaml
+- yaml 2.9.1, ISC License — https://github.com/eemeli/yaml

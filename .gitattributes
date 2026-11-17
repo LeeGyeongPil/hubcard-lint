@@ -1,0 +1,5 @@
+# 기본은 LF 로 고정한다(줄·열 번호를 검사하는 테스트가 OS 와 무관하게 같게).
+* text=auto eol=lf
+# 앞머리 인식 픽스처 — CRLF·BOM 바이트를 그대로 지켜야 한다
+test/fixtures/cards/crlf.md -text
+test/fixtures/cards/bom.md -text
